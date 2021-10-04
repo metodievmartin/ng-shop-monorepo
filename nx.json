@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "admin-panel": {
+      "tags": []
+    },
+    "admin-panel-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-panel"]
+    },
     "eshop": {
       "tags": []
     },
