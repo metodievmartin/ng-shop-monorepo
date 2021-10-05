@@ -5,7 +5,7 @@
       "projectType": "application",
       "root": "apps/admin-panel",
       "sourceRoot": "apps/admin-panel/src",
-      "prefix": "ng-eshop",
+      "prefix": "admin",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -124,7 +124,7 @@
       "projectType": "application",
       "root": "apps/eshop",
       "sourceRoot": "apps/eshop/src",
-      "prefix": "ng-eshop",
+      "prefix": "eshop",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
