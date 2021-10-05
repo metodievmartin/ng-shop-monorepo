@@ -236,6 +236,114 @@
           }
         }
       }
+    },
+    "orders": {
+      "root": "libs/orders",
+      "sourceRoot": "libs/orders/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/orders",
+            "main": "libs/orders/src/index.ts",
+            "tsConfig": "libs/orders/tsconfig.lib.json",
+            "assets": ["libs/orders/*.md"]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/orders/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/orders"],
+          "options": {
+            "jestConfig": "libs/orders/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "products": {
+      "root": "libs/products",
+      "sourceRoot": "libs/products/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/products/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/products"],
+          "options": {
+            "jestConfig": "libs/products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ui/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "users": {
+      "root": "libs/users",
+      "sourceRoot": "libs/users/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/users",
+            "main": "libs/users/src/index.ts",
+            "tsConfig": "libs/users/tsconfig.lib.json",
+            "assets": ["libs/users/*.md"]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/users/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/users"],
+          "options": {
+            "jestConfig": "libs/users/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
