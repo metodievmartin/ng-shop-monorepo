@@ -1,3 +1,6 @@
+// CSS Normalization & Initialization
+@import "~normalize.css/normalize.css";
+
 // Base Styles
 @import "base/colours.scss";
 @import "base/fonts.scss";
@@ -12,6 +15,9 @@
 // Base Style Config
 // The order matters - it needs to be imported after the style libraries
 @import "base/configuration.scss";
+
+// Shared Components Style Sheets
+@import "apps/admin/shell.scss";
 
 // Libs Style Sheets
 @import "libs/ui/index.scss";
