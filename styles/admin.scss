@@ -1,6 +1,19 @@
-// Base
-@import "./base/colours.scss";
-@import "./base/fonts.scss";
-@import "./base/mixins.scss";
-@import "./base/configuration.scss";
+// Base Styles
+@import "base/colours.scss";
+@import "base/fonts.scss";
+@import "base/mixins.scss";
 
+// Style Libraries
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeng/resources/primeng.min.css";
+@import "~primeflex/primeflex.css";
+
+// Base Style Config
+// The order matters - it needs to be imported after the style libraries
+@import "base/configuration.scss";
+
+// Libs Style Sheets
+@import "libs/ui/index.scss";
+
+// Pages Style Sheets
