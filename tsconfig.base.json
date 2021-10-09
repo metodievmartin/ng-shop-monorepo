@@ -15,10 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-eshop/orders": ["libs/orders/src/index.ts"],
-      "@ng-eshop/products": ["libs/products/src/index.ts"],
-      "@ng-eshop/ui": ["libs/ui/src/index.ts"],
-      "@ng-eshop/users": ["libs/users/src/index.ts"]
+      "@env/*": ["environments/*"],
+      "@libs/interfaces": ["libs/interfaces/index.ts"],
+      "@libs/orders": ["libs/orders/src/index.ts"],
+      "@libs/products": ["libs/products/src/index.ts"],
+      "@libs/ui": ["libs/ui/src/index.ts"],
+      "@libs/users": ["libs/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
