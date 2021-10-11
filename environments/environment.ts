@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   hostUrl: 'http://localhost:5000',
   apiVersion: '/api/v1',
-  categoriesUrl: '/categories'
+  categoriesUrl: '/categories',
+  productsUrl: '/products',
 };
 
 /*
