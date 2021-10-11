@@ -21,8 +21,14 @@
               "apps/admin-panel/src/favicon.ico",
               "apps/admin-panel/src/assets"
             ],
-            "styles": ["apps/admin-panel/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/admin-panel/src/styles.scss",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css"
+            ],
+            "scripts": [
+              "node_modules/quill/dist/quill.js"
+            ]
           },
           "configurations": {
             "production": {
