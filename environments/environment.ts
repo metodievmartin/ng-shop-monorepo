@@ -8,6 +8,7 @@ export const environment = {
   apiVersion: '/api/v1',
   categoriesUrl: '/categories',
   productsUrl: '/products',
+  usersUrl: '/users',
 };
 
 /*

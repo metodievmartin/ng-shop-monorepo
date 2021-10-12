@@ -20,6 +20,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputMaskModule } from 'primeng/inputmask';
 
 // Project
 import { CategoriesService, ProductsService } from '@libs/products';
@@ -32,6 +33,10 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersService } from '@libs/users';
+import { TagModule } from 'primeng/tag';
 
 const UX_MODULES = [
   CardModule,
@@ -46,7 +51,8 @@ const UX_MODULES = [
   DropdownModule,
   InputTextareaModule,
   InputSwitchModule,
-  EditorModule
+  EditorModule,
+  InputMaskModule
 ];
 @NgModule({
   declarations: [
@@ -57,7 +63,9 @@ const UX_MODULES = [
     CategoriesListComponent,
     CategoriesFormComponent,
     ProductsListComponent,
-    ProductsFormComponent
+    ProductsFormComponent,
+    UsersFormComponent,
+    UsersListComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,9 +74,16 @@ const UX_MODULES = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ...UX_MODULES
+    ...UX_MODULES,
+    TagModule
   ],
-  providers: [CategoriesService, ProductsService, MessageService, ConfirmationService],
+  providers: [
+    CategoriesService,
+    ProductsService,
+    UsersService,
+    MessageService,
+    ConfirmationService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
