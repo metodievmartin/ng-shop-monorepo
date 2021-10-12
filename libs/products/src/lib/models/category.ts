@@ -1,6 +1,6 @@
-export class Category {
+export interface Category {
   _id?: string;
-  name?: string;
-  icon?: string;
-  colour?: string;
+  name: string;
+  icon: string;
+  colour: string;
 }

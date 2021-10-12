@@ -1,12 +1,12 @@
-export class User {
+export interface User {
   _id?: string;
-  name?: string;
+  name: string;
   password?: string;
   passwordConfirm?: string;
-  email?: string;
-  phone?: string;
+  email: string;
+  phone: string;
   token?: string;
-  isAdmin?: true;
+  isAdmin: true;
   street?: string;
   apartment?: string;
   zip?: string;

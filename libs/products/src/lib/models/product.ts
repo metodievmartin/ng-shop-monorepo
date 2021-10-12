@@ -1,18 +1,18 @@
 import { Category } from './category';
 
-export class Product {
+export interface Product {
   id?: string;
-  name?: string;
-  description?: string;
+  name: string;
+  description: string;
   richDescription?: string;
-  image?: string;
+  image: string;
   images?: string[];
-  brand?: string;
-  price?: number;
-  category?: Category;
-  countInStock?: number;
-  rating?: number;
-  numReviews?: number;
-  isFeatured?: boolean;
-  dateCreated?: Date;
+  brand: string;
+  price: number;
+  category: Category;
+  countInStock: number;
+  rating: number;
+  numReviews: number;
+  isFeatured: boolean;
+  dateCreated: Date;
 }
