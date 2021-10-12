@@ -9,6 +9,7 @@ export const environment = {
   categoriesUrl: '/categories',
   productsUrl: '/products',
   usersUrl: '/users',
+  ordersUrl: '/orders',
 };
 
 /*

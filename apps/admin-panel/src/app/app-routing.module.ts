@@ -9,6 +9,8 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 
 const routes: Routes = [
   {
@@ -22,7 +24,9 @@ const routes: Routes = [
       { path: 'products/form/:id', component: ProductsFormComponent },
       { path: 'users', component: UsersListComponent },
       { path: 'users/form', component: UsersFormComponent },
-      { path: 'users/form/:id', component: UsersFormComponent }
+      { path: 'users/form/:id', component: UsersFormComponent },
+      { path: 'orders', component: OrdersListComponent },
+      { path: 'orders/:id', component: OrderDetailsComponent }
     ]
   }
 ];
