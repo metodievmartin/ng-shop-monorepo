@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ShellComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
       { path: 'categories', component: CategoriesListComponent },
       { path: 'categories/form', component: CategoriesFormComponent },
       { path: 'categories/form/:id', component: CategoriesFormComponent },
@@ -32,6 +32,11 @@ const routes: Routes = [
       { path: 'orders', component: OrdersListComponent },
       { path: 'orders/:id', component: OrderDetailsComponent }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 
