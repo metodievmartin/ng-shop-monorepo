@@ -50,4 +50,12 @@ export class ProductsService {
   deleteProduct(productId: string): Observable<any> {
     return this.http.delete<any>(`${this.apiURLProducts}/${productId}`);
   }
+
+  getProductsCount(): Observable<number> {
+    return this.http
+      .get<ApiResponseDocI<number>>(`${this.apiURLProducts}/get/count`)
+      .pipe(
+        map((res) => res.data)
+      );
+  }
 }

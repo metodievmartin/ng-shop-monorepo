@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { Order } from '../models/order';
 import { ApiResponseCollectionI, ApiResponseDocI } from '@libs/interfaces';
-import { Category } from '@libs/products';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -50,5 +49,21 @@ export class OrdersService {
 
   deleteOrder(orderId: string): Observable<any> {
     return this.http.delete<any>(`${this.apiURLOrders}/${orderId}`);
+  }
+
+  getTotalSales(): Observable<number> {
+    return this.http
+      .get<ApiResponseDocI<number>>(`${this.apiURLOrders}/get/total-sales`)
+      .pipe(
+        map((res) => res.data)
+      );
+  }
+
+  getOrdersCount(): Observable<number> {
+    return this.http
+      .get<ApiResponseDocI<number>>(`${this.apiURLOrders}/get/total-count`)
+      .pipe(
+        map((res) => res.data)
+      );
   }
 }

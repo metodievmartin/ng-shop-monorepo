@@ -56,6 +56,14 @@ export class UsersService {
     return this.http.delete<any>(`${this.apiURLUsers}/${userId}`);
   }
 
+  getUsersCount(): Observable<number> {
+    return this.http
+      .get<ApiResponseDocI<number>>(`${this.apiURLUsers}/get/count`)
+      .pipe(
+        map((res) => res.data)
+      );
+  }
+
   getCountries(): CountryCodeI[] {
     return Object.entries(countriesLib
       .getNames('en', { select: 'official' }))

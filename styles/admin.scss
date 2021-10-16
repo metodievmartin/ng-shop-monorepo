@@ -19,9 +19,11 @@
 // Shared Components Style Sheets
 @import "apps/admin/shell.scss";
 
+// Pages Style Sheets
+@import "apps/admin/pages/products.scss";
+@import "apps/admin/pages/dashboard.scss";
+
 // Libs Style Sheets
 @import "libs/ui/index.scss";
 @import "libs/users/index.scss";
 
-// Pages Style Sheets
-@import "apps/admin/pages/products.scss";
