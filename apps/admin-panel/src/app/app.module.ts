@@ -1,7 +1,7 @@
 // Core
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -37,10 +37,11 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
-import { UsersService } from '@libs/users';
+import { JwtInterceptor, UsersService } from '@libs/users';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 import { OrdersService } from '@libs/orders';
+import { UsersModule } from '@libs/users';
 
 const UX_MODULES = [
   CardModule,
@@ -82,6 +83,7 @@ const UX_MODULES = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    UsersModule,
     ...UX_MODULES
   ],
   providers: [
@@ -90,7 +92,8 @@ const UX_MODULES = [
     UsersService,
     OrdersService,
     MessageService,
-    ConfirmationService
+    ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })

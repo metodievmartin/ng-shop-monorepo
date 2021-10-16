@@ -11,10 +11,14 @@ import { UsersListComponent } from './pages/users/users-list/users-list.componen
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
+import { AuthGuard } from '@libs/users';
 
 const routes: Routes = [
   {
-    path: '', component: ShellComponent, children: [
+    path: '',
+    component: ShellComponent,
+    canActivate: [AuthGuard],
+    children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'categories', component: CategoriesListComponent },
       { path: 'categories/form', component: CategoriesFormComponent },

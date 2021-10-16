@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { LocalStorageService } from '@libs/users';
+import { environment } from '@env/environment';
+
+@Injectable()
+export class JwtInterceptor implements HttpInterceptor {
+
+  constructor(
+    private localStorageService: LocalStorageService,
+  ) {}
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const token = this.localStorageService.getToken();
+
+    const APIUrl = environment.hostUrl + environment.apiVersion;
+    const isAPIUrl = request.url.startsWith(APIUrl);
+
+    if (token && isAPIUrl) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    }
+
+    return next.handle(request);
+  }
+}
