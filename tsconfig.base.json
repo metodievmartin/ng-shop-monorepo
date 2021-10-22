@@ -19,8 +19,8 @@
       "@libs/interfaces": ["libs/interfaces/index.ts"],
       "@libs/orders": ["libs/orders/src/index.ts"],
       "@libs/products": ["libs/products/src/index.ts"],
-      "@libs/ui": ["libs/ui/src/index.ts"],
-      "@libs/users": ["libs/users/src/index.ts"]
+      "@libs/users": ["libs/users/src/index.ts"],
+      "@libs/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

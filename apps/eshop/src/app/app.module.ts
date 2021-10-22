@@ -8,6 +8,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from '@libs/products';
+import { UiModule } from '@libs/ui';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductsModule } from '@libs/products';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductsModule
+    ProductsModule,
+    UiModule
   ],
   providers: [],
   bootstrap: [AppComponent],
