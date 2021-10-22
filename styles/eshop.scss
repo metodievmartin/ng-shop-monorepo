@@ -1,3 +1,6 @@
+// CSS Normalization & Initialization
+@import "~normalize.css/normalize.css";
+
 // Base Styles
 @import "base/colours.scss";
 @import "base/fonts.scss";
@@ -16,9 +19,18 @@
 // Shared Style Sheets
 @import "apps/eshop/shared/header.scss";
 @import "apps/eshop/shared/footer.scss";
+@import "apps/eshop/shared/nav.scss";
 
 // Libs Style Sheets
 @import "libs/ui/index.scss";
 @import "libs/products/index.scss";
 
 // Pages Style Sheets
+
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: var(--surface-100);
+}
