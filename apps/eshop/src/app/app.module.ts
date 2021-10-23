@@ -9,6 +9,9 @@ import { NavComponent } from './shared/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from '@libs/products';
 import { UiModule } from '@libs/ui';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriesService } from '@libs/products';
+import { ProductsService } from '@libs/products';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { UiModule } from '@libs/ui';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ProductsModule,
     UiModule
   ],
-  providers: [],
+  providers: [
+    CategoriesService,
+    ProductsService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
