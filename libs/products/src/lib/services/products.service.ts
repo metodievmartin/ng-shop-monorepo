@@ -13,11 +13,22 @@ import { Product } from '../models/product';
 export class ProductsService {
   apiURLProducts = environment.hostUrl + environment.apiVersion + environment.productsUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http
       .get<ApiResponseCollectionI<Product>>(this.apiURLProducts)
+      .pipe(
+        map(res => res.data)
+      );
+  }
+
+  getFeaturedProducts(productsCount: number): Observable<Product[]> {
+    return this.http
+      .get<ApiResponseCollectionI<Product>>(
+        `${this.apiURLProducts}?isFeatured=true&limit=${productsCount}`
+      )
       .pipe(
         map(res => res.data)
       );
