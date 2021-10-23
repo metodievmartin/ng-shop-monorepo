@@ -3,4 +3,5 @@ export interface Category {
   name: string;
   icon: string;
   colour: string;
+  checked?: boolean;
 }
