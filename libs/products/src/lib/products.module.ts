@@ -9,6 +9,11 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
 import { ProductsRoutingModule } from './products-routing.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { RatingModule } from 'primeng/rating';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { RippleModule } from 'primeng/ripple';
+import { UiModule } from '@libs/ui';
 
 
 @NgModule({
@@ -17,21 +22,27 @@ import { FormsModule } from '@angular/forms';
     ProductSearchComponent,
     ProductItemComponent,
     FeaturedProductsComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
+    UiModule,
     ButtonModule,
     CheckboxModule,
-    FormsModule
+    FormsModule,
+    RatingModule,
+    InputNumberModule,
+    RippleModule
   ],
   exports: [
     CategoriesBannerComponent,
     ProductSearchComponent,
     ProductItemComponent,
     FeaturedProductsComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    ProductDetailsComponent
   ],
   providers: []
 })
