@@ -1,12 +1,101 @@
 
+# NgShop - MEAN stack project
 
-# NgEshop
+## Summary
+
+An E-Commerce project composed of two Angular apps - the `eshop`, the `admin-panel`,
+shared common libraries `products`, `orders`, `ui`, `users` and styles all organised and
+managed in one [NX Monorepo](https://nx.dev/l/a/getting-started/intro). The project makes use of [PrimeNG](https://www.primefaces.org/primeng/) -
+an Angular UI components library and [PrimeFlex](https://www.primefaces.org/primeflex/) - an accompanying
+lightweight responsive CSS utility library.
+
+#### Eshop
+Fully functional e-commerce app allowing users to sign up, browse categories and 
+featured products, filter products by multiple categories, add products to cart which is 
+observed and updated in real time, buy products using Stripe payments and notifications.
+
+#### Admin Panel
+
+Consists of dashboard where stats such total sales, users, products & orders 
+are being aggregated in real time, separate page for products, categories,
+users and orders supporting full CRUD functionalities. Features sortable tables,
+advanced editing options, photo uploads, rich text editors, colour pickers & etc. 
+
+#### Libs
+Grouped common functionalities in libraries. Each contain pages, components,
+services, pipes, interceptors, models and interfaces that can be shared and
+used across different apps within the monorepo thus reducing code duplication
+and leveraging re-usability.
+
+#### Back-end
+A RESTful service in a separate repo and can be found here:
+
+https://github.com/metodievmartin/ngshop-rest-api
+
+
+## Installation & Pre-requisites
+
+To be able to run Angular on your local system, you need the following:
+
+### Node
+- #### Node installation on Windows
+
+  Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+  Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+
+- #### Node installation on Ubuntu
+
+  You can install nodejs and npm easily with apt install, just run the following commands.
+
+      $ sudo apt install nodejs
+      $ sudo apt install npm
+
+- #### Other Operating Systems
+  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
+
+If the installation was successful, you should be able to run the following command.
+
+    $ node --version
+    v14.17.5
+
+    $ npm --version
+    8.1.1
+
+### NX
+
+To install the NX, open a terminal window and run the following command:
+
+`npm install -g nx`
+
+## Installation
+To install and run the app locally download the source code or clone the repository.
+
+`git clone https://github.com/metodievmartin/ng-shop-monorepo.git`
+
+Open the project and cd into the root folder.
+
+`cd ng-shop-monorepo`
+
+Install all the dependencies:
+
+`npm install`
+
+Run any of the commands to start the respective app:
+
+`nx serve eshop`
+
+`nx serve admin-panel`
+
+Navigate to `http://localhost:4200/`. 
+
+The app will load the development server and will automatically reload if you change any of the source files.
+
+
+
+## Project Repository Structure
+![project-structure](./assets/images/ng-shop-project-structure.drawio(1).png)
 
 This project was generated using [Nx](https://nx.dev).
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
-
-🔎 **Smart, Extensible Build Framework**
 
 ## Quick Start & Documentation
 
@@ -87,16 +176,9 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
 
-
-
-
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
 
 Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
 
