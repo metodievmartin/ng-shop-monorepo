@@ -19,6 +19,19 @@
     margin-top: -85px;
   }
 
+  img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
   .name {
     font-size: 0.8em;
     margin: 10px 0;

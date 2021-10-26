@@ -12,6 +12,11 @@ import { UiModule } from '@libs/ui';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesService } from '@libs/products';
 import { ProductsService } from '@libs/products';
+import { CartService, OrdersModule } from '@libs/orders';
+import { MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+import { NotificationComponent } from './shared/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -19,18 +24,24 @@ import { ProductsService } from '@libs/products';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
-    NavComponent
+    NavComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ProductsModule,
-    UiModule
+    UiModule,
+    OrdersModule,
+    ToastModule
   ],
   providers: [
     CategoriesService,
-    ProductsService
+    ProductsService,
+    CartService,
+    MessageService,
   ],
   bootstrap: [AppComponent],
 })

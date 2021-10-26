@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Product, ProductsService } from '@libs/products';
+import { ProductsService } from '../../services/products.service';
+import { Product } from '../../models/product';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { CartItem, CartService } from '@libs/orders';
 
 @Component({
   selector: 'products-product-details',
@@ -11,11 +13,12 @@ import { Subject } from 'rxjs';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   endSubs$ = new Subject<never>();
   product: Product | null = null;
-  quantity = 0;
+  quantity = 1;
 
   constructor(
     private productService: ProductsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -32,12 +35,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .subscribe(prod => this.product = prod);
   }
 
+  addProductToCart() {
+    const cartItem: CartItem = {
+      productId: this.product?._id || '-1',
+      quantity: this.quantity
+    }
+
+    this.cartService.setCartItem(cartItem, this.product);
+  }
+
   ngOnDestroy(): void {
     this.endSubs$.next();
     this.endSubs$.complete();
-  }
-
-  addProductToCart() {
-
   }
 }

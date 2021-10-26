@@ -1,3 +1,4 @@
+
 <div class="product-item">
   <div class="product-item-wrapper">
     <img [routerLink]="'/products/' + product?._id" [src]="product?.image" [alt]="product?.name" class="image">
@@ -7,6 +8,7 @@
       styleClass="mt-3 add-to-cart"
       label="Add to cart"
       icon="pi pi-shopping-cart"
+      (onClick)="addProductToCart()"
     ></p-button>
   </div>
 </div>

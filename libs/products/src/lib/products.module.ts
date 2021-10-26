@@ -14,6 +14,7 @@ import { RatingModule } from 'primeng/rating';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { RippleModule } from 'primeng/ripple';
 import { UiModule } from '@libs/ui';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UiModule } from '@libs/ui';
     FormsModule,
     RatingModule,
     InputNumberModule,
-    RippleModule
+    RippleModule,
+    ToastModule
   ],
   exports: [
     CategoriesBannerComponent,
