@@ -33,6 +33,11 @@ A RESTful service in a separate repo and can be found here:
 https://github.com/metodievmartin/ngshop-rest-api
 
 
+## Screenshots
+
+#### Admin Panel -> [Gallery](https://drive.google.com/drive/folders/1I91dv8kM9YYBTAdvrheOXslr3jnijBvq?usp=sharing) 
+#### Eshop -> [Gallery](https://drive.google.com/drive/folders/1rohrXtJYKvS2Wo4nwnllMtuuf1qwjMS5?usp=sharing) 
+
 ## Installation & Pre-requisites
 
 To be able to run Angular on your local system, you need the following:
