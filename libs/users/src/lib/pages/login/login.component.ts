@@ -1,16 +1,14 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { AuthService, LocalStorageService } from '@libs/users';
+import { AuthService } from '../../services/auth.service';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'users-login',
   templateUrl: './login.component.html',
-  styles: [
-  ],
-  encapsulation: ViewEncapsulation.Emulated
 })
 export class LoginComponent implements OnInit {
   loginFormGroup!: FormGroup;

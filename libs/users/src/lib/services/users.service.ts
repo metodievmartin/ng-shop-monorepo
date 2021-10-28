@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 import * as countriesLib from 'i18n-iso-countries';
-import { User } from '@libs/users';
+import { User } from '../models/user';
 import { ApiResponseCollectionI, ApiResponseDocI, CountryCodeI } from '@libs/interfaces';
 
 declare const require: any;

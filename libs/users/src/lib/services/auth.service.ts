@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { LocalStorageService, User } from '@libs/users';
+import { LocalStorageService } from '../services/local-storage.service';
+import { User } from '../models/user';
 import { ApiResponseAuthI } from '@libs/interfaces';
 
 @Injectable({

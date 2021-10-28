@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LocalStorageService } from '@libs/users';
+import { LocalStorageService } from '../services/local-storage.service';
 import { environment } from '@env/environment';
 
 @Injectable()
@@ -23,6 +23,7 @@ export class JwtInterceptor implements HttpInterceptor {
     const isAPIUrl = request.url.startsWith(APIUrl);
 
     if (token && isAPIUrl) {
+      console.log(token, isAPIUrl);
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`
