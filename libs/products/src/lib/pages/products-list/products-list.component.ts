@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-import { CategoriesService, Category, Product, ProductsService } from '@libs/products';
 import { ActivatedRoute } from '@angular/router';
+
+import { CategoriesService} from '../../services/categories.service';
+import { Category } from '../../models/category';
+import { Product } from '../../models/product';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'products-products-list',

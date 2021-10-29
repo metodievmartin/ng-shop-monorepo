@@ -12,9 +12,10 @@
         <label [for]="category._id || 'binary'">{{ category.name }}</label>
       </div>
     </div>
-    <div [ngClass]="{ 'col-9': !isCategoryPage, 'col-12': isCategoryPage}">
+    <div [ngClass]="{ 'col-9': !isCategoryPage, 'col-12': isCategoryPage }">
       <div class="grid">
-        <div [ngClass]="{ 'col-4': !isCategoryPage, 'col-3': isCategoryPage}" *ngFor="let product of products">
+        <div [ngClass]="{ 'col-4': !isCategoryPage, 'col-3': isCategoryPage }"
+             *ngFor="let product of products">
           <products-product-item [product]="product"></products-product-item>
         </div>
       </div>
