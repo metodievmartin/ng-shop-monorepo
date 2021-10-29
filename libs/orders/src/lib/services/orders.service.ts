@@ -6,6 +6,7 @@ import { environment } from '@env/environment';
 import { Order } from '../models/order';
 import { ApiResponseCollectionI, ApiResponseDocI } from '@libs/interfaces';
 import { map } from 'rxjs/operators';
+import { BaseOrder } from '../models/base-order';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class OrdersService {
       );
   }
 
-  createOrder(order: Order): Observable<Order> {
+  createOrder(order: BaseOrder): Observable<Order> {
     return this.http
       .post<ApiResponseDocI<Order>>(this.apiURLOrders, order)
       .pipe(
