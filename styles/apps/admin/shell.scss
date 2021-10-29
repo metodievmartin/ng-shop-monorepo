@@ -47,7 +47,11 @@
             width: 100%;
 
             &:hover {
-              background-color: var(--blue-700);
+              background-color: var(--blue-900);
+            }
+
+            &.activated {
+              background-color: var(--blue-500);
             }
 
             i {
