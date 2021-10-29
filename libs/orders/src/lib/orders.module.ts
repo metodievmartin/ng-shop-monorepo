@@ -13,6 +13,7 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
+import { ThankYouPageComponent } from './pages/thank-you-page/thank-you-page.component';
 
 
 
@@ -21,7 +22,8 @@ import { InputTextModule } from 'primeng/inputtext';
     CartIconComponent,
     CartPageComponent,
     OrderSummaryComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    ThankYouPageComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { InputTextModule } from 'primeng/inputtext';
     CartIconComponent,
     CartPageComponent,
     OrderSummaryComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    ThankYouPageComponent
   ]
 })
 export class OrdersModule {
