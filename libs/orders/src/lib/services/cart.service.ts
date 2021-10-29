@@ -34,6 +34,15 @@ export class CartService {
     this.saveCart(cart);
   }
 
+  emptyCart() {
+    const initialCart = {
+      items: []
+    };
+    const initialCartJson = JSON.stringify(initialCart);
+    localStorage.setItem(CART_KEY, initialCartJson);
+    this.cart$.next(initialCart);
+  }
+
   getCart(): Cart {
     if (localStorage.getItem(CART_KEY) === null) {
       this.initCartLocalStorage();
@@ -46,15 +55,16 @@ export class CartService {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   }
 
-  setCartItem(cartItem: CartItem, product: Product | null): Cart {
+  setCartItem(cartItem: CartItem, product: Product | null, updateCartItem?: boolean): Cart {
     const cart = this.getCart();
 
     const existingCartItem = cart.items
       .find(item => item.productId === cartItem.productId);
 
     existingCartItem
-      ? existingCartItem.quantity += cartItem.quantity
-      : cart.items.push(cartItem);
+      ? this._updateCartItemQuantity(cartItem, existingCartItem, updateCartItem)
+      : this._addNewCartItemToCart(cartItem, cart);
+
 
     this.saveCart(cart);
 
@@ -65,5 +75,27 @@ export class CartService {
     }
 
     return cart;
+  }
+
+  private _updateCartItemQuantity(cartItem: CartItem, existingCartItem: CartItem, updateCartItem?: boolean) {
+    updateCartItem
+      ? existingCartItem.quantity = cartItem.quantity
+      : existingCartItem.quantity += cartItem.quantity
+  }
+
+  private _addNewCartItemToCart(cartItem: CartItem, cart: Cart) {
+    cart.items.push(cartItem);
+  }
+
+  deleteCartItem(productId: string) {
+    const cart = this.getCart();
+    const newCart = cart.items.filter((item) => item.productId !== productId);
+
+    cart.items = newCart;
+
+    const cartJsonString = JSON.stringify(cart);
+    localStorage.setItem(CART_KEY, cartJsonString);
+
+    this.cart$.next(cart);
   }
 }

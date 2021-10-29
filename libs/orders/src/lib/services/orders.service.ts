@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class OrdersService {
+  apiURLProducts = environment.hostUrl + environment.apiVersion + environment.productsUrl;
   apiURLOrders = environment.hostUrl + environment.apiVersion + environment.ordersUrl;
 
   constructor(private http: HttpClient) {}
@@ -64,6 +65,14 @@ export class OrdersService {
       .get<ApiResponseDocI<number>>(`${this.apiURLOrders}/get/total-count`)
       .pipe(
         map((res) => res.data)
+      );
+  }
+
+  getProduct(productId: string): Observable<any> {
+    return this.http
+      .get<ApiResponseDocI<any>>(`${this.apiURLProducts}/${productId}`)
+      .pipe(
+        map(res => res.data)
       );
   }
 }
