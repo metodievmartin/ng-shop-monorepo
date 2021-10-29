@@ -32,11 +32,6 @@ const routes: Routes = [
       { path: 'orders', component: OrdersListComponent },
       { path: 'orders/:id', component: OrderDetailsComponent }
     ]
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
   }
 ];
 
