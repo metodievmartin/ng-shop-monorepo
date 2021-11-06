@@ -6,7 +6,7 @@ export interface User {
   email: string;
   phone: string;
   token?: string;
-  isAdmin: true;
+  isAdmin: boolean;
   street?: string;
   apartment?: string;
   zip?: string;

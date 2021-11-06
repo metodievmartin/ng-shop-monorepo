@@ -17,4 +17,28 @@ export class LocalStorageService {
   removeToken() {
     localStorage.removeItem(TOKEN);
   }
+
+  isValidToken() {
+    const token = this.getToken();
+    if (token) {
+      const tokenDecoded = JSON.parse(atob(token.split('.')[1]));
+      return !this._tokenExpired(tokenDecoded.exp);
+    }
+
+    return false;
+  }
+
+  private _tokenExpired(expiration: number): boolean {
+    return Math.floor(new Date().getTime() / 1000) >= expiration;
+  }
+
+  getUserIdFromToken(): string {
+    const token = this.getToken();
+    if (token) {
+      const tokenDecoded = JSON.parse(atob(token.split('.')[1]));
+      return tokenDecoded.id;
+    }
+
+    return '-1';
+  }
 }

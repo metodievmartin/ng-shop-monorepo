@@ -42,6 +42,8 @@ import { OrdersListComponent } from './pages/orders/orders-list/orders-list.comp
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 import { OrdersService } from '@libs/orders';
 import { UsersModule } from '@libs/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 const UX_MODULES = [
   CardModule,
@@ -83,6 +85,8 @@ const UX_MODULES = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     UsersModule,
     ...UX_MODULES
   ],

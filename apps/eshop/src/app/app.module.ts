@@ -9,7 +9,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from '@libs/products';
 import { UiModule } from '@libs/ui';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CategoriesService } from '@libs/products';
 import { ProductsService } from '@libs/products';
 import { CartService, OrdersModule } from '@libs/orders';
@@ -17,6 +17,9 @@ import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { NotificationComponent } from './shared/notification/notification.component';
+import { JwtInterceptor, UsersModule } from '@libs/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,12 @@ import { NotificationComponent } from './shared/notification/notification.compon
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     ProductsModule,
     UiModule,
     OrdersModule,
+    UsersModule,
     ToastModule
   ],
   providers: [
@@ -42,6 +48,7 @@ import { NotificationComponent } from './shared/notification/notification.compon
     ProductsService,
     CartService,
     MessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })

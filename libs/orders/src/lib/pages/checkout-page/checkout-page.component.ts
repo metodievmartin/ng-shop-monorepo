@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
-import { UsersService } from '@libs/users';
+import { User, UsersService } from '@libs/users';
 import { CountryCodeI } from '@libs/interfaces';
 import { Cart } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
@@ -10,24 +12,20 @@ import { OrdersService } from '../../services/orders.service';
 import { OrderItem } from '../../models/order-item';
 import { BaseOrder } from '../../models/base-order';
 
+
 @Component({
   selector: 'orders-checkout-page',
   templateUrl: './checkout-page.component.html',
   styles: []
 })
-export class CheckoutPageComponent implements OnInit {
+export class CheckoutPageComponent implements OnInit, OnDestroy {
   checkoutFormGroup!: FormGroup;
   isSubmitted = false;
   orderItems: OrderItem[] = [];
   userId = '609d65943373711346c5e950';
-  user = {
-    _id: '609d65943373711346c5e950',
-    name: 'Test User',
-    email: 'test@test>com',
-    phone: '1234578',
-    isAdmin: false
-  };
+  user!: User;
   countries: CountryCodeI[] = [];
+  unsubscribe$ = new Subject();
 
   constructor(
     private router: Router,
@@ -40,6 +38,7 @@ export class CheckoutPageComponent implements OnInit {
 
   ngOnInit(): void {
     this._initCheckoutForm();
+    this._autoFillUserData();
     this._getCartItems();
     this._getCountries();
   }
@@ -106,6 +105,30 @@ export class CheckoutPageComponent implements OnInit {
 
   get checkoutForm() {
     return this.checkoutFormGroup.controls;
+  }
+
+  private _autoFillUserData() {
+    this.usersService.observeCurrentUser()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(user => {
+        console.log(user);
+        if (user) {
+          this.user = user;
+        }
+        this.checkoutForm.name.setValue(user?.name);
+        this.checkoutForm.email.setValue(user?.email);
+        this.checkoutForm.phone.setValue(user?.phone);
+        this.checkoutForm.city.setValue(user?.city);
+        this.checkoutForm.country.setValue(user?.country);
+        this.checkoutForm.zip.setValue(user?.zip);
+        this.checkoutForm.apartment.setValue(user?.apartment);
+        this.checkoutForm.street.setValue(user?.street);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
 

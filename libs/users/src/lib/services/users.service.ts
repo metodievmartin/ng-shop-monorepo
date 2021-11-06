@@ -7,6 +7,7 @@ import { environment } from '@env/environment';
 import * as countriesLib from 'i18n-iso-countries';
 import { User } from '../models/user';
 import { ApiResponseCollectionI, ApiResponseDocI, CountryCodeI } from '@libs/interfaces';
+import { UsersFacade } from '../+state/users.facade';
 
 declare const require: any;
 
@@ -16,7 +17,10 @@ declare const require: any;
 export class UsersService {
   apiURLUsers = environment.hostUrl + environment.apiVersion + environment.usersUrl;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private usersFacade: UsersFacade
+    ) {
     countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
   }
 
@@ -77,5 +81,17 @@ export class UsersService {
 
   getCountry(countryKey: string): string {
     return countriesLib.getName(countryKey, 'en');
+  }
+
+  initAppSession() {
+    this.usersFacade.buildUserSession();
+  }
+
+  observeCurrentUser() {
+    return this.usersFacade.currentUser$;
+  }
+
+  isCurrentUserAuthenticated() {
+    return this.usersFacade.isAuthenticated$;
   }
 }
